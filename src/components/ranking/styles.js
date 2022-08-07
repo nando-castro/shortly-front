@@ -68,8 +68,9 @@ const Body = styled.div`
   display: flex;
   flex-direction: column;
   padding: 15px 40px;
-
   margin-top: 50px;
+
+  overflow-y: hidden;
 
   background: #ffffff;
   border: 1px solid rgba(120, 177, 89, 0.25);
@@ -77,9 +78,11 @@ const Body = styled.div`
   border-radius: 24px 24px 0px 0px;
 `;
 
-const Item = styled.p`
+const Item = styled.div`
   width: 496px;
   height: 28px;
+  padding: 10px;
+  margin-bottom: 12px;
 
   font-family: "Lexend Deca";
   font-style: normal;
@@ -88,8 +91,6 @@ const Item = styled.p`
   line-height: 28px;
 
   color: #000000;
-
-  /* Inside auto layout */
 
   flex: none;
   order: 0;

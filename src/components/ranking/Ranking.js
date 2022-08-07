@@ -2,8 +2,39 @@ import { useNavigate } from "react-router-dom";
 import Logo from "../../shared/logo/Logo";
 import Rank from "../../assets/imgs/rank.png";
 import { Body, Container, Header, Item, Ranking, Text, Top } from "./styles";
+import axios from "axios";
+import { useEffect, useState } from "react";
+
 export default function RankingScreen() {
   const navigate = useNavigate();
+  const [ranking, setRanking] = useState([]);
+
+  const URL = `http://localhost:4000/ranking`;
+
+  useEffect(() => {
+    function getRanking() {
+      const promise = axios.get(URL);
+      promise
+        .then((res) => {
+          setRanking(res.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+    getRanking();
+  });
+
+  function renderRanking() {
+    return ranking.map((i, index) => (
+      <Item key={index}>
+        <span>
+          {index+1}. {i.name} - {i.linksCount} links - {i.visitCount} visualizações
+        </span>
+      </Item>
+    ));
+  }
+
   function login() {
     navigate("/login");
   }
@@ -25,8 +56,7 @@ export default function RankingScreen() {
           Ranking
         </Top>
         <Body>
-          <Item>Aqui vai o user</Item>
-          <Item>Aqui vai o user</Item>
+          <Item>{renderRanking()}</Item>
         </Body>
       </Ranking>
       <Text>Crie sua conta para usar nosso serviço!</Text>

@@ -93,6 +93,7 @@ const Button = styled.div`
   text-align: center;
 
   color: #ffffff;
+  cursor: pointer;
 `;
 
 export { Container, Header, Form, Button };
