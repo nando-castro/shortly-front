@@ -16,6 +16,7 @@ const Header = styled.div`
   flex-direction: row;
   justify-content: right;
   padding: 5px;
+  margin-top: 50px;
 
   p {
     width: 95px;
