@@ -20,7 +20,7 @@ export default function LoginScreen() {
       </Header>
       <Logo />
       <Form>
-        <input type="email" placeholder="Email" name="email" />
+        <input type="email" placeholder="E-mail" name="email" />
         <input type="password" placeholder="Senha" name="password" />
       </Form>
       <Button>Entrar</Button>
