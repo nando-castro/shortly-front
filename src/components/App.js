@@ -12,10 +12,10 @@ function App() {
       <ResetCSS />
       <GlobalStyle />
       <Routes>
-        <Route path="/" element={<HomeScreen />} />
+        <Route path="/home" element={<HomeScreen />} />
         <Route path="/login" element={<LoginScreen />} />
         <Route path="/register" element={<RegisterScreen />} />
-        <Route path="/ranking" element={<RankingScreen />} />
+        <Route path="/" element={<RankingScreen />} />
       </Routes>
     </BrowserRouter>
   );

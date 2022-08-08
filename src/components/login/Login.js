@@ -9,7 +9,9 @@ export default function LoginScreen() {
   const navigate = useNavigate();
   const { user, setUser } = useAuth();
 
-  const URL = `${process.env.REACT_APP_API_URL}/signin`;
+  const URL = `http://localhost:4000/signin`;
+
+  //const URL = `https://app-shortly-back.herokuapp.com/`;
 
   if (user !== null) {
     navigate("/");
