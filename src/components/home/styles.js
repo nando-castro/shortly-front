@@ -33,11 +33,25 @@ const Header = styled.div`
     color: #9c9c9c;
   }
 
-  .login {
-    width: 50px;
-    margin-right: 10px;
-    color: #5d9040;
+  .exit {
+    text-decoration: underline;
   }
+`;
+
+const Logged = styled.div`
+  position: absolute;
+  width: 185px;
+  height: 18px;
+  left: 248px;
+  top: 69px;
+
+  font-family: "Lexend Deca";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+
+  color: #5d9040;
 `;
 
 const Form = styled.form`s
@@ -98,51 +112,72 @@ const Item = styled.div`
   width: 1020px;
   height: 62px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 20px;
 
-  div {
-    width: 887px;
-    height: 60px;
+  .main {
+    width: 1020px;
+    height: 62px;
     display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-    background: #80cc74;
-    box-shadow: 0px 4px 24px rgba(120, 177, 89, 0.12);
-    border-radius: 12px 0px 0px 12px;
-
-    font-family: "Lexend Deca";
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 18px;
-
-    color: #ffffff;
-
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-  }
-
-  .remove {
-    width: 130px;
-    height: 60px;
-    display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
 
-    background: #ffffff;
-    box-shadow: 0px 4px 24px rgba(120, 177, 89, 0.12);
-    border-radius: 0px 12px 12px 0px;
+    div {
+      width: 887px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
 
-    ion-icon {
-      color: #ea4f4f;
-      font-size: 30px;
-      cursor: pointer;
+      background: #80cc74;
+      box-shadow: 0px 4px 24px rgba(120, 177, 89, 0.12);
+      border-radius: 12px 0px 0px 12px;
+
+      font-family: "Lexend Deca";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 14px;
+      line-height: 18px;
+
+      color: #ffffff;
+
+      flex: none;
+      order: 0;
+      flex-grow: 0;
+    }
+
+    .remove {
+      width: 130px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      background: #ffffff;
+      box-shadow: 0px 4px 24px rgba(120, 177, 89, 0.12);
+      border-radius: 0px 12px 12px 0px;
+
+      ion-icon {
+        color: #ea4f4f;
+        font-size: 30px;
+        cursor: pointer;
+      }
     }
   }
 `;
 
-export { Container, Header, Form, Button, Item };
+const Links = styled.div`
+  width: 100%;
+  heigth: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 25px;
+`;
+
+export { Container, Header, Form, Button, Item, Logged, Links };

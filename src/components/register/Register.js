@@ -10,7 +10,7 @@ export default function RegisterScreen() {
     name: "",
     email: "",
     password: "",
-    passconfirm: "",
+    confirmPassword: "",
   });
 
   const URL = `http://localhost:4000/signup`;
@@ -21,11 +21,13 @@ export default function RegisterScreen() {
     const promise = axios.post(URL, { ...userRegister });
 
     promise
-      .then((res) => {
+      .then(() => {
+        alert("Cadastro realizado com sucesso!");
         navigate("/login");
       })
-      .catch((err) => {
+      .catch((res, err) => {
         console.log(err);
+        //identificar erros
       });
   }
 
@@ -73,8 +75,8 @@ export default function RegisterScreen() {
         <input
           type="password"
           placeholder="Confirmar senha"
-          value={userRegister.passconfirm}
-          name="passconfirm"
+          value={userRegister.confirmPassword}
+          name="confirmPassword"
           onChange={changeInput}
         />
       </Form>

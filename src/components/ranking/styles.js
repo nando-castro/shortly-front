@@ -67,7 +67,7 @@ const Body = styled.div`
   height: 241px;
   display: flex;
   flex-direction: column;
-  padding: 15px 40px;
+  padding: 20px 40px;
   margin-top: 50px;
 
   overflow-y: hidden;

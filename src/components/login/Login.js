@@ -14,7 +14,7 @@ export default function LoginScreen() {
   //const URL = `https://app-shortly-back.herokuapp.com/`;
 
   if (user !== null) {
-    navigate("/");
+    navigate("/home");
   }
 
   const [userLogin, setUserLogin] = useState({
@@ -26,17 +26,12 @@ export default function LoginScreen() {
     e.preventDefault();
 
     const promise = axios.post(URL, { ...userLogin });
-    promise.then((response) => {
-      setUser(response.data);
-      //user.token = response.data.token;
-      navigate("/");
-      console.log(response.data);
+    promise.then((res) => {
+      setUser(res.data);
+      navigate("/home");
 
       const person = {
-        id: response.data.id,
-        name: response.data.name,
-        email: response.data.email,
-        token: response.data.token,
+        token: res.data.token,
       };
       localStorage.setItem("userLogged", JSON.stringify(person));
     });
