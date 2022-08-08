@@ -12,7 +12,7 @@ export default function RankingScreen() {
   const [ranking, setRanking] = useState([]);
   const { user, urls } = useAuth();
 
-  const URL = `http://localhost:4000/ranking`;
+  const URL = `https://shortly-back-app.herokuapp.com/ranking`;
 
   useEffect(() => {
     function getRanking() {

@@ -13,7 +13,7 @@ export default function RegisterScreen() {
     confirmPassword: "",
   });
 
-  const URL = `http://localhost:4000/signup`;
+  const URL = `https://shortly-back-app.herokuapp.com/signup`;
 
   function register(e) {
     e.preventDefault();
@@ -27,7 +27,6 @@ export default function RegisterScreen() {
       })
       .catch((res, err) => {
         console.log(err);
-        //identificar erros
       });
   }
 

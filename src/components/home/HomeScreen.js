@@ -11,9 +11,8 @@ export default function HomeScreen() {
   const { urls, setUrls } = useAuth()
   const navigate = useNavigate();
 
-  const URL = `http://localhost:4000/urls/shorten`;
-  const URLS = `http://localhost:4000/users/me`;
-  //const URL = `https://app-shortly-back.herokuapp.com/`;
+  const URL = `https://shortly-back-app.herokuapp.com/urls/shorten`;
+  const URLS = `https://shortly-back-app.herokuapp.com/users/me`;
 
   function shorten(e) {
     e.preventDefault();
