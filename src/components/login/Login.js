@@ -10,6 +10,7 @@ export default function LoginScreen() {
   const { user, setUser } = useAuth();
 
   const URL = `https://shortly-back-app.herokuapp.com/signin`;
+  //const URL = `http://localhost:4000/signin`
 
   if (user !== null) {
     navigate("/home");

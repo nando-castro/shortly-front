@@ -2,16 +2,16 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
-  heigth: 100vh;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 `;
 
 const Header = styled.div`
   width: 80%;
-  heigth: 40px;
+  height: 40px;
   display: flex;
   flex-direction: row;
   justify-content: right;
@@ -54,12 +54,13 @@ const Logged = styled.div`
   color: #5d9040;
 `;
 
-const Form = styled.form`s
+const Form = styled.form`
   width: 100%;
-  heigth: auto;
+  height: auto;
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   padding: 30px;
   margin-top: 40px;
 
@@ -171,7 +172,7 @@ const Item = styled.div`
 
 const Links = styled.div`
   width: 100%;
-  heigth: 100%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;

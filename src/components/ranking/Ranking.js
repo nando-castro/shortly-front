@@ -12,7 +12,8 @@ export default function RankingScreen() {
   const [ranking, setRanking] = useState([]);
   const { user, urls } = useAuth();
 
-  const URL = `https://shortly-back-app.herokuapp.com/ranking`;
+  //const URL = `https://shortly-back-app.herokuapp.com/ranking`;
+  const URL = `http://localhost:4000/ranking`;
 
   useEffect(() => {
     function getRanking() {
@@ -72,9 +73,7 @@ export default function RankingScreen() {
               <img src={Rank} alt="Trofeu" />
               Ranking
             </Top>
-            <Body>
-              {renderRanking()}
-            </Body>
+            <Body>{renderRanking()}</Body>
           </Ranking>
         </Container>
       ) : (
@@ -91,9 +90,7 @@ export default function RankingScreen() {
               <img src={Rank} alt="Trofeu" />
               Ranking
             </Top>
-            <Body>
-              {renderRanking()}
-            </Body>
+            <Body>{renderRanking()}</Body>
           </Ranking>
           <Text>Crie sua conta para usar nosso serviço!</Text>
         </Container>

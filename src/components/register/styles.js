@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Container = styled.div`
   width: 100%;
-  heigth: 100vh;
+  height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -11,7 +11,7 @@ const Container = styled.div`
 
 const Header = styled.div`
   width: 80%;
-  heigth: 40px;
+  height: 40px;
   display: flex;
   flex-direction: row;
   justify-content: right;
@@ -42,7 +42,7 @@ const Header = styled.div`
 
 const Form = styled.form`
   width: 100%;
-  heigth: auto;
+  height: auto;
   display: flex;
   flex-direction: column;
   align-items: center;

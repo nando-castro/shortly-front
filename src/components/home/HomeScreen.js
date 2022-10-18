@@ -6,9 +6,10 @@ import Logo from "../../shared/logo/Logo";
 import { useAuth } from "../../context/auth";
 
 export default function HomeScreen() {
+  const [update, setUpdate] = useState(false);
   const { user } = useAuth();
   const [url, setUrl] = useState("");
-  const { urls, setUrls } = useAuth()
+  const { urls, setUrls } = useAuth();
   const navigate = useNavigate();
 
   const URL = `https://shortly-back-app.herokuapp.com/urls/shorten`;
@@ -30,6 +31,7 @@ export default function HomeScreen() {
       .then((res) => {
         console.log(res.data);
         setUrl(res.data);
+        setUpdate(!update);
       })
       .catch((err) => {
         console.log(err);
@@ -55,7 +57,7 @@ export default function HomeScreen() {
       }
       getUrls();
     }
-  }, []);
+  }, [update]);
 
   function renderUrls() {
     if (urls.shortenedUrls !== undefined) {
@@ -68,12 +70,16 @@ export default function HomeScreen() {
               <p>quantidade de visitantes: {i.visitCount}</p>
             </div>
             <div className="remove">
-              <ion-icon name="trash"></ion-icon>
+              <ion-icon onClick={deleteUrl} name="trash"></ion-icon>
             </div>
           </div>
         </Item>
       ));
     }
+  }
+
+  function deleteUrl() {
+    console.log("delete");
   }
 
   function changeInput(e) {
