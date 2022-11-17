@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Container, Form, Header, Item, Links, Logged } from "./styles";
-import axios from "axios";
 import Logo from "../../shared/logo/Logo";
 import { useAuth } from "../../context/auth";
 import { api } from "../../service/api";
@@ -11,6 +10,7 @@ export default function HomeScreen() {
   const { user } = useAuth();
   const [url, setUrl] = useState("");
   const { urls, setUrls } = useAuth();
+  // const [urls, setUrls] = useState([]);
   const navigate = useNavigate();
 
   function shorten(e) {
@@ -37,6 +37,8 @@ export default function HomeScreen() {
       });
   }
 
+  console.log(urls);
+
   useEffect(() => {
     if (user) {
       function getUrls() {
@@ -56,15 +58,16 @@ export default function HomeScreen() {
       }
       getUrls();
     }
+    // eslint-disable-next-line
   }, [update]);
 
   function renderUrls() {
     if (urls.shortenedUrls !== undefined) {
-      return urls.shortenedUrls.map((i, index) => (
-        <Item key={index}>
+      return urls.shortenedUrls.map((i) => (
+        <Item key={i.id}>
           <div className="main">
             <div>
-              <p>{i.url}</p>
+              <p className="url">{i.url}</p>
               <p>{i.shortUrl}</p>
               <p>quantidade de visitantes: {i.visitCount}</p>
             </div>

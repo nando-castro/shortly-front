@@ -16,7 +16,7 @@ const Header = styled.div`
   flex-direction: row;
   justify-content: right;
   padding: 5px;
-  margin-top: 50px;
+  margin-top: 60px;
 
   p {
     width: 95px;
@@ -120,6 +120,9 @@ const Item = styled.div`
   justify-content: center;
   margin-top: 20px;
 
+  border: 1px solid rgba(120, 177, 89, 0.25);
+  border-radius: 12px;
+
   .main {
     width: 1020px;
     height: 62px;
@@ -150,6 +153,20 @@ const Item = styled.div`
       flex: none;
       order: 0;
       flex-grow: 0;
+
+      cursor: default;
+
+      p {
+        width: 100%;
+        padding: 20px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+
+      .url {
+        width: 200%;
+      }
     }
 
     .remove {
@@ -178,7 +195,6 @@ const Links = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 
   margin-top: 25px;
 `;

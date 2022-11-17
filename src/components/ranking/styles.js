@@ -6,7 +6,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
 `;
 
 const Header = styled.div`
@@ -16,7 +15,7 @@ const Header = styled.div`
   flex-direction: row;
   justify-content: right;
   padding: 5px;
-  margin-top: 50px;
+  margin-top: 60px;
 
   p {
     width: 95px;
