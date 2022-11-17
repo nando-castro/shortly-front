@@ -3,14 +3,11 @@ import { Button, Container, Form, Header } from "./styles";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/auth";
 import { useState } from "react";
-import axios from "axios";
+import { api } from "../../service/api";
 
 export default function LoginScreen() {
   const navigate = useNavigate();
   const { user, setUser } = useAuth();
-
-  const URL = `https://shortly-back-app.herokuapp.com/signin`;
-  //const URL = `http://localhost:4000/signin`
 
   if (user !== null) {
     navigate("/home");
@@ -24,19 +21,20 @@ export default function LoginScreen() {
   function login(e) {
     e.preventDefault();
 
-    const promise = axios.post(URL, { ...userLogin });
-    promise.then((res) => {
-      setUser(res.data);
-      navigate("/home");
+    api
+      .post("signin", { ...userLogin })
+      .then((res) => {
+        setUser(res.data);
+        navigate("/home");
 
-      const person = {
-        token: res.data.token,
-      };
-      localStorage.setItem("userLogged", JSON.stringify(person));
-    });
-    promise.catch((err) => {
-      console.log("email ou senha inválidos");
-    });
+        const person = {
+          token: res.data.token,
+        };
+        localStorage.setItem("userLogged", JSON.stringify(person));
+      })
+      .catch((err) => {
+        console.log("email ou senha inválidos");
+      });
   }
 
   function changeInput(e) {

@@ -68,6 +68,8 @@ const Form = styled.form`
     width: 769px;
     height: 60px;
 
+    padding-left: 20px;
+
     background: #ffffff;
     border: 1px solid rgba(120, 177, 89, 0.25);
     box-shadow: 0px 4px 24px rgba(120, 177, 89, 0.12);

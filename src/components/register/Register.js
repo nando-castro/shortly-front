@@ -2,7 +2,7 @@ import Logo from "../../shared/logo/Logo";
 import { Button, Container, Form, Header } from "./styles";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import axios from "axios";
+import { api } from "../../service/api";
 
 export default function RegisterScreen() {
   const navigate = useNavigate();
@@ -13,14 +13,10 @@ export default function RegisterScreen() {
     confirmPassword: "",
   });
 
-  const URL = `https://shortly-back-app.herokuapp.com/signup`;
-
   function register(e) {
     e.preventDefault();
-
-    const promise = axios.post(URL, { ...userRegister });
-
-    promise
+    api
+      .post("signup", { ...userRegister })
       .then(() => {
         alert("Cadastro realizado com sucesso!");
         navigate("/login");

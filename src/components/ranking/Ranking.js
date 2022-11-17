@@ -2,23 +2,20 @@ import { Link, useNavigate } from "react-router-dom";
 import Logo from "../../shared/logo/Logo";
 import Rank from "../../assets/imgs/rank.png";
 import { Body, Container, Header, Item, Ranking, Text, Top } from "./styles";
-import axios from "axios";
 import { useEffect, useState } from "react";
-import { Links, Logged } from "../home/styles";
+import { Logged } from "../home/styles";
 import { useAuth } from "../../context/auth";
+import { api } from "../../service/api";
 
 export default function RankingScreen() {
   const navigate = useNavigate();
   const [ranking, setRanking] = useState([]);
   const { user, urls } = useAuth();
 
-  //const URL = `https://shortly-back-app.herokuapp.com/ranking`;
-  const URL = `http://localhost:4000/ranking`;
-
   useEffect(() => {
     function getRanking() {
-      const promise = axios.get(URL);
-      promise
+      api
+        .get("ranking")
         .then((res) => {
           setRanking(res.data);
         })

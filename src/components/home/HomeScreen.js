@@ -4,6 +4,7 @@ import { Button, Container, Form, Header, Item, Links, Logged } from "./styles";
 import axios from "axios";
 import Logo from "../../shared/logo/Logo";
 import { useAuth } from "../../context/auth";
+import { api } from "../../service/api";
 
 export default function HomeScreen() {
   const [update, setUpdate] = useState(false);
@@ -12,22 +13,20 @@ export default function HomeScreen() {
   const { urls, setUrls } = useAuth();
   const navigate = useNavigate();
 
-  const URL = `https://shortly-back-app.herokuapp.com/urls/shorten`;
-  const URLS = `https://shortly-back-app.herokuapp.com/users/me`;
-
   function shorten(e) {
     e.preventDefault();
 
-    const promise = axios.post(
-      URL,
-      { ...url },
-      {
-        headers: {
-          Authorization: `Bearer ${user.token}`,
-        },
-      }
-    );
-    promise
+    api
+      .post(
+        "urls/shorten",
+        { ...url },
+        {
+          headers: {
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      )
+
       .then((res) => {
         console.log(res.data);
         setUrl(res.data);
@@ -41,12 +40,12 @@ export default function HomeScreen() {
   useEffect(() => {
     if (user) {
       function getUrls() {
-        const promise = axios.get(URLS, {
-          headers: {
-            Authorization: `Bearer ${user.token}`,
-          },
-        });
-        promise
+        api
+          .get("users/me", {
+            headers: {
+              Authorization: `Bearer ${user.token}`,
+            },
+          })
           .then((res) => {
             console.log(res.data);
             setUrls(res.data);
