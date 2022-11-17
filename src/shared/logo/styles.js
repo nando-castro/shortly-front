@@ -10,9 +10,6 @@ const Container = styled.div`
 
   margin-top: 90px;
 
-  width: 314px;
-  height: 102px;
-
   font-family: "Lexend Deca";
   font-style: normal;
   font-weight: 200;
